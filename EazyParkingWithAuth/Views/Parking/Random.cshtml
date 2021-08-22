@@ -1,0 +1,24 @@
+﻿@model EazyParkingWithAuth.ViewModels.RandomParkingViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    var className = Model.Customers.Count > 2 ? "Popular" : null;
+}
+
+<h2 class="@className">@Model.Parking.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has booked it before.</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}

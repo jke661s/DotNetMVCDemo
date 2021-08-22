@@ -1,0 +1,29 @@
+﻿@model IEnumerable<EazyParkingWithAuth.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Parking</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { Customer = @customer }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else { 
+    <p>There is no customer recorded.</p>
+}
+

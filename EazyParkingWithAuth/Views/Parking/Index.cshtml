@@ -1,0 +1,23 @@
+﻿@model IEnumerable<EazyParkingWithAuth.Models.Parking>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Parking</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Parking</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var parking in Model)
+          {
+            <tr>
+                <td>@parking.Name</td>
+            </tr>
+          }
+    </tbody>
+</table>
