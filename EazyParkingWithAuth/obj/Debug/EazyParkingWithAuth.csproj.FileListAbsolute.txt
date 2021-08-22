@@ -111,3 +111,4 @@ C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAut
 C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.AddCustomerModel.resources
 C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.AddedMembershipType.resources
 C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.PopulateMembershipTypes.resources
+C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.AddedDataAnnotation.resources
