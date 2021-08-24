@@ -22,6 +22,8 @@ namespace EazyParkingWithAuth.Models
     {
 
         public DbSet<Customer> CustomerSet { get; set; }
+
+        public DbSet<Parking> ParkingSet { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

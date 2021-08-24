@@ -10,14 +10,16 @@
     <thead>
         <tr>
             <th>Parking</th>
+            <th>Suburb</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var parking in Model)
           {
-            <tr>
-                <td>@parking.Name</td>
-            </tr>
+        <tr>
+            <td>@Html.ActionLink(parking.Name, "details", "parking", new { id = parking.Id }, null)</td>
+            <td>@parking.Suburb.Name</td>
+        </tr>
           }
     </tbody>
 </table>

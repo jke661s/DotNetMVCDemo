@@ -203,8 +203,13 @@
     <Compile Include="Migrations\202108232331518_AddBirthdayInCustomer.Designer.cs">
       <DependentUpon>202108232331518_AddBirthdayInCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108240039107_AddSuburbModelAndUpdateParkingModel.cs" />
+    <Compile Include="Migrations\202108240039107_AddSuburbModelAndUpdateParkingModel.Designer.cs">
+      <DependentUpon>202108240039107_AddSuburbModelAndUpdateParkingModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Suburb.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Parking.cs" />
@@ -286,6 +291,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Parking\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Parking\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108232331518_AddBirthdayInCustomer.resx">
       <DependentUpon>202108232331518_AddBirthdayInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108240039107_AddSuburbModelAndUpdateParkingModel.resx">
+      <DependentUpon>202108240039107_AddSuburbModelAndUpdateParkingModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

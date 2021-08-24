@@ -1,6 +1,7 @@
 ﻿using EazyParkingWithAuth.Models;
 using EazyParkingWithAuth.ViewModels;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,14 +11,22 @@ namespace EazyParkingWithAuth.Controllers
 {
     public class ParkingController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public ParkingController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         [Route("parking/index")]
         public ActionResult Index()
         {
-            var parkingList = new List<Parking>
-            {
-                new Parking { Name = "Caulfied" },
-                new Parking { Name = "Clayton" }
-            };
+            var parkingList = _context.ParkingSet.Include(p => p.Suburb).ToList();
             return View(parkingList);
         }
 
@@ -36,6 +45,15 @@ namespace EazyParkingWithAuth.Controllers
                 Parking = parking
             };
             return View(viewModel);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var parking = _context.ParkingSet.Include(p => p.Suburb).SingleOrDefault(p => p.Id == id);
+            if (parking == null) {
+                return HttpNotFound();
+            }
+            return View(parking);
         }
 
         public ActionResult Edit(int id)
