@@ -112,3 +112,5 @@ C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAut
 C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.AddedMembershipType.resources
 C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.PopulateMembershipTypes.resources
 C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.AddedDataAnnotation.resources
+C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.UpdateMembershipTypeModel.resources
+C:\Projects\EazyParkingWithAuth\EazyParkingWithAuth\obj\Debug\EazyParkingWithAuth.Migrations.AddBirthdayInCustomer.resources

@@ -15,8 +15,8 @@ namespace EazyParkingWithAuth.Models
         public bool IsSubscribedToNewsletter { get; set; }
 
         // Sometimes you don't want to load the membership type as well. So you need an FK, MembershiTypeId
-
         public MembershipType MembershipType { get; set; }
         public int MembershipTypeId { get; set; }
+        public DateTime? Birthday { get; set; }
     }
 }

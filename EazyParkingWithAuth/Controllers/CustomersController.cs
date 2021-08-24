@@ -1,5 +1,6 @@
 ﻿using EazyParkingWithAuth.Models;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,12 +10,24 @@ namespace EazyParkingWithAuth.Controllers
 {
     public class CustomersController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public List<Customer> GetCustomers()
         {
             var customerList = new List<Customer>
             {
                 new Customer { Id = 1, Name = "Jackie" },
-                new Customer { Id = 2, Name = "Allen" }
+                new Customer { Id = 2, Name = "Ella" }
             };
             return customerList;
         }
@@ -22,15 +35,15 @@ namespace EazyParkingWithAuth.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customerList = GetCustomers();
+            var customerList = _context.CustomerSet.Include(c => c.MembershipType).ToList();
             return View(customerList);
             //return View();
         }
 
         // GET: customers/details/{id}
-        public ActionResult Details(Customer customer)
+        public ActionResult Details(int id)
         {
-            //var customer = GetCustomers().SingleOrDefault(c => c.Id == customerId);
+            var customer = _context.CustomerSet.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
             return View(customer);
