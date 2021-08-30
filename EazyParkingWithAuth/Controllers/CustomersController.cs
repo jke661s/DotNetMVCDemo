@@ -49,5 +49,12 @@ namespace EazyParkingWithAuth.Controllers
             };
             return View(viewmodel);
         }
+
+        public ActionResult Create(Customer customer)
+        {
+            _context.CustomerSet.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
     }
 }
