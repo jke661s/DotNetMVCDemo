@@ -50,9 +50,21 @@ namespace EazyParkingWithAuth.Controllers
             return View("CustomerForm", viewmodel);
         }
 
-        public ActionResult Create(Customer customer)
+        [HttpPost]
+        public ActionResult Save(Customer customer)
         {
-            _context.CustomerSet.Add(customer);
+            if (customer.Id == 0)
+            {
+                _context.CustomerSet.Add(customer);
+            } else
+            {
+                // Could use AutoMapper here
+                var customerInDb = _context.CustomerSet.Single(c => c.Id == customer.Id);
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthday = customer.Birthday;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            }
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
         }
