@@ -22,16 +22,6 @@ namespace EazyParkingWithAuth.Controllers
             _context.Dispose();
         }
 
-        public List<Customer> GetCustomers()
-        {
-            var customerList = new List<Customer>
-            {
-                new Customer { Id = 1, Name = "Jackie" },
-                new Customer { Id = 2, Name = "Ella" }
-            };
-            return customerList;
-        }
-
         // GET: Customers
         public ActionResult Index()
         {
@@ -47,6 +37,13 @@ namespace EazyParkingWithAuth.Controllers
             if (customer == null)
                 return HttpNotFound();
             return View(customer);
+        }
+
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+
+            return View();
         }
     }
 }
