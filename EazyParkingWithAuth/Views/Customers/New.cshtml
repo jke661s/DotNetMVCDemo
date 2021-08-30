@@ -1,4 +1,4 @@
-﻿@model EazyParkingWithAuth.Models.Customer
+﻿@model EazyParkingWithAuth.ViewModels.NewCustomerViewModel
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,21 +9,20 @@
 @using (Html.BeginForm("Create", "Customers"))
 {
     <div class="form-group">
-        @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Customer.Name)
+        @Html.TextBoxFor(model => model.Customer.Name, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Birthday)
-        @Html.TextBoxFor(model => model.Birthday, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Customer.Birthday)
+        @Html.TextBoxFor(model => model.Customer.Birthday, new { @class = "form-control" })
     </div>
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(model => model.IsSubscribedToNewsletter) Subscribe to News Letter?
+            @Html.CheckBoxFor(model => model.Customer.IsSubscribedToNewsletter) Subscribe to News Letter?
         </label>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.MembershipTypeId)
-        @Html.DropDownListFor(model => model.MembershipTypeId, new SelectList(Model.))
-        @Html.TextBoxFor(model => model.Birthday, new { @class = "form-control" })
+        @Html.LabelFor(model => model.Customer.MembershipTypeId)
+        @Html.DropDownListFor(model => model.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select a membership type", new { @class = "form-control" })
     </div>
 }

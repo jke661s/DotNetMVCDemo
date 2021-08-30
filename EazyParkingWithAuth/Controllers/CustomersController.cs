@@ -1,4 +1,5 @@
 ﻿using EazyParkingWithAuth.Models;
+using EazyParkingWithAuth.ViewModels;
 using System;
 using System.Data.Entity;
 using System.Collections.Generic;
@@ -42,8 +43,11 @@ namespace EazyParkingWithAuth.Controllers
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
-
-            return View();
+            var viewmodel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View(viewmodel);
         }
     }
 }
