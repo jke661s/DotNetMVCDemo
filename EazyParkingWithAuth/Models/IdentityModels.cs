@@ -27,6 +27,8 @@ namespace EazyParkingWithAuth.Models
 
         public DbSet<MembershipType> MembershipTypes { get; set; }
 
+        public DbSet<Suburb> Suburbs { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

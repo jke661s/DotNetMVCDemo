@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202108240039107_AddSuburbModelAndUpdateParkingModel.Designer.cs">
       <DependentUpon>202108240039107_AddSuburbModelAndUpdateParkingModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108300814115_AddAvailableAmountForParking.cs" />
+    <Compile Include="Migrations\202108300814115_AddAvailableAmountForParking.Designer.cs">
+      <DependentUpon>202108300814115_AddAvailableAmountForParking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Suburb.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\ParkingFormViewModel.cs" />
     <Compile Include="ViewModels\RandomParkingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -294,6 +299,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Parking\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Parking\ParkingForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108240039107_AddSuburbModelAndUpdateParkingModel.resx">
       <DependentUpon>202108240039107_AddSuburbModelAndUpdateParkingModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108300814115_AddAvailableAmountForParking.resx">
+      <DependentUpon>202108300814115_AddAvailableAmountForParking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

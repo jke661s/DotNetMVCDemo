@@ -1,0 +1,29 @@
+﻿@model EazyParkingWithAuth.ViewModels.ParkingFormViewModel
+@{
+    ViewBag.Title = "ParkingForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Parking"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Parking.Name)
+        @Html.TextBoxFor(m => m.Parking.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Parking.Address)
+        @Html.TextBoxFor(m => m.Parking.Address, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Parking.AvailableAmount)
+        @Html.TextBoxFor(m => m.Parking.AvailableAmount, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Parking.SuburbId)
+        @Html.DropDownListFor(m => m.Parking.SuburbId, new SelectList(Model.Suburbs, "Id", "Name"), "Select a suburb", new {@class="form-control"})
+    </div>
+    @Html.HiddenFor(m => m.Parking.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

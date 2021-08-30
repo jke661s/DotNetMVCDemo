@@ -10,6 +10,17 @@ namespace EazyParkingWithAuth.ViewModels
     {
         public IEnumerable<MembershipType> MembershipTypes { get; set; }
         public Customer Customer { get; set; }
-
+        public String Title {
+            get
+            {
+                if (Customer == null || Customer.Id == 0)
+                {
+                    return "New Customer";
+                } else 
+                {
+                    return "Edit Customer";
+                }
+            }
+        }
     }
 }

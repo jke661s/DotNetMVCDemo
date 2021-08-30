@@ -12,5 +12,6 @@ namespace EazyParkingWithAuth.Models
         public string Address { get; set; }
         public Suburb Suburb { get; set; }
         public int SuburbId { get; set; }
+        public int AvailableAmount { get; set; }
     }
 }

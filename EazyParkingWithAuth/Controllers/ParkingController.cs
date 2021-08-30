@@ -56,9 +56,45 @@ namespace EazyParkingWithAuth.Controllers
             return View(parking);
         }
 
+        public ActionResult Save(Parking parking)
+        {
+            if (parking.Id == 0)
+            {
+                _context.ParkingSet.Add(parking);
+            } else
+            {
+                var parkingInDb = _context.ParkingSet.Single(p => p.Id == parking.Id);
+                parkingInDb.Name = parking.Name;
+                parkingInDb.Address = parking.Address;
+                parkingInDb.AvailableAmount = parking.AvailableAmount;
+                parkingInDb.SuburbId = parking.SuburbId;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Parking");
+        }
+
         public ActionResult Edit(int id)
         {
-            return Content("id = " + id);
+            var parking = _context.ParkingSet.SingleOrDefault(p => p.Id == id);
+            if (parking == null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new ParkingFormViewModel
+            {
+                Parking = parking,
+                Suburbs = _context.Suburbs.ToList()
+            };
+            return View("ParkingForm", viewModel);
+        }
+
+        public ActionResult New()
+        {
+            var viewmodel = new ParkingFormViewModel
+            {
+                Suburbs = _context.Suburbs.ToList()
+            };
+            return View("ParkingForm", viewmodel);
         }
 
         public ActionResult Index(int? pageIndex, string sortBy)
