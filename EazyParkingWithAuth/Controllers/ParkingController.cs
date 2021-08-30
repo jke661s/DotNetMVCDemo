@@ -56,6 +56,7 @@ namespace EazyParkingWithAuth.Controllers
             return View(parking);
         }
 
+        [HttpPost]
         public ActionResult Save(Parking parking)
         {
             if (parking.Id == 0)
