@@ -10,7 +10,7 @@ namespace EazyParkingWithAuth.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please enter your full name")]
         [StringLength(255)]
         [Display(Name = "Full Name")]
         public string Name { get; set; }
@@ -22,6 +22,7 @@ namespace EazyParkingWithAuth.Models
         [Display(Name="Membership Type")]
         public int MembershipTypeId { get; set; }
 
+        [Over18YearsOldIfCustomer]
         public DateTime? Birthday { get; set; }
     }
 }
